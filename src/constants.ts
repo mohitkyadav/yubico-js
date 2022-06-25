@@ -8,6 +8,28 @@ export const SERVERS: string[] = [
   'api5.yubico.com',
 ];
 
+// https://developers.yubico.com/yubico-c/Manuals/modhex.1.html
+export const modHexMap = {
+  b: '1',
+  c: '0',
+  d: '2',
+  e: '3',
+  f: '4',
+  g: '5',
+  h: '6',
+  i: '7',
+  j: '8',
+  k: '9',
+  l: 'A',
+  n: 'B',
+  r: 'C',
+  t: 'D',
+  u: 'E',
+  v: 'F',
+};
+
+export const keysUsedInHash = ['nonce', 'otp', 'sessioncounter', 'sessionuse', 'sl', 'status', 't', 'timestamp'];
+
 /**
  * Error messages
  * Source: https://developers.yubico.com/yubikey-val/Validation_Protocol_V2.0.html
