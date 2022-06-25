@@ -98,7 +98,7 @@ export class Yubico {
 
     requestParams.append('h', hash);
 
-    console.log(requestParams.toString());
+    // console.log(requestParams.toString());
 
     return false;
   }
