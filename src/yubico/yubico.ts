@@ -68,7 +68,7 @@ export class Yubico {
    * @param otp {string} The OTP from the YubiKey.
    * @returns {Promise<Response>}
    */
-  public async verifyOtp(otp: string): Promise<Boolean> {
+  public verifyOtp(otp: string): Boolean {
     // The length of the key = [16, 40]
     const nonce: string = crypto.randomBytes(16).toString('hex');
 
