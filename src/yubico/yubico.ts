@@ -36,31 +36,29 @@ export class Yubico {
    */
   private apiServers: string[] = SERVERS;
 
-  constructor(options?: IYubico) {
-    if (options) {
-      if (options.clientId) {
-        this.clientId = options.clientId;
-      } else {
-        throw new Error('clientId is required.');
-      }
+  constructor(options: IYubico) {
+    if (options.clientId) {
+      this.clientId = options.clientId;
+    } else {
+      throw new Error('clientId is required.');
+    }
 
-      if (options.secretKey) {
-        this.secretKey = options.secretKey;
-      } else {
-        throw new Error('secretKey is required.');
-      }
+    if (options.secretKey) {
+      this.secretKey = options.secretKey;
+    } else {
+      throw new Error('secretKey is required.');
+    }
 
-      if (options.sl) {
-        this.sl = options.sl;
-      }
+    if (options.sl) {
+      this.sl = options.sl;
+    }
 
-      if (options.timeout) {
-        this.timeout = options.timeout;
-      }
+    if (options.timeout) {
+      this.timeout = options.timeout;
+    }
 
-      if (options.apiServers) {
-        this.apiServers = options.apiServers;
-      }
+    if (options.apiServers) {
+      this.apiServers = options.apiServers;
     }
   }
 
@@ -70,7 +68,7 @@ export class Yubico {
    * @param otp {string} The OTP from the YubiKey.
    * @returns {Promise<Response>}
    */
-  public async verifyOtp(otp: string): Promise<Response> {
+  public async verifyOtp(otp: string): Promise<Boolean> {
     // The length of the key = [16, 40]
     const nonce: string = crypto.randomBytes(16).toString('hex');
 
@@ -101,5 +99,7 @@ export class Yubico {
     requestParams.append('h', hash);
 
     console.log(requestParams.toString());
+
+    return false;
   }
 }

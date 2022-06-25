@@ -1,6 +1,6 @@
 {
-  "name": "yubico-ts",
-  "version": "0.0.4",
+  "name": "yubico-js",
+  "version": "0.0.1",
   "description": "A Yubico OTP Client",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohitkyadav/yubico-ts.git"
+    "url": "git+https://github.com/mohitkyadav/yubico-js.git"
   },
   "keywords": [
     "Yubico",
@@ -31,9 +31,9 @@
   "author": "Mohit Kumar Yadav",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mohitkyadav/yubico-ts/issues"
+    "url": "https://github.com/mohitkyadav/yubico-js/issues"
   },
-  "homepage": "https://github.com/mohitkyadav/yubico-ts#readme",
+  "homepage": "https://github.com/mohitkyadav/yubico-js#readme",
   "devDependencies": {
     "@types/jest": "^28.1.3",
     "jest": "^28.1.1",
