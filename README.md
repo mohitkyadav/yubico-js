@@ -1,6 +1,10 @@
-# Yubico API
+# Yubico-JS
 
-This is a work in progress project.
+![npm](https://img.shields.io/npm/v/yubico-js?logo=npm&logoColor=%23ca0100&style=flat-square)
+
+## Features
+
+- Verify Yubikey OTPs
 
 ## Setup guide
 
@@ -43,4 +47,4 @@ try {
 
 ## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub](https://img.shields.io/github/license/mohitkyadav/yubico-js?logo=github&style=flat-square)
