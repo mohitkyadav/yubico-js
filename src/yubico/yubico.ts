@@ -100,7 +100,7 @@ export class Yubico {
     params.append('h', hash);
 
     const failedRes: YubicoResponse[] = [];
-    const cancelReqCallbacks: Array<() => void> = [];
+    const cancelReqCallbacks: void[] = [];
 
     const requestPromises = this.apiServers.map(
       (apiServer) =>
