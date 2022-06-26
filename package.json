@@ -18,7 +18,6 @@
     "preversion": "npm run lint",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
-    "publish": "npm publish",
     "patch": "npm version patch"
   },
   "repository": {
