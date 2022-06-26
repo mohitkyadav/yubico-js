@@ -1,6 +1,6 @@
 # Yubico-JS
 
-![npm](https://img.shields.io/npm/v/yubico-js?logo=npm&logoColor=%23ca0100&style=flat-square) ![node-current](https://img.shields.io/node/v/yubico-js?style=flat-square)
+[![npm](https://img.shields.io/npm/v/yubico-js?logo=npm&logoColor=%23ca0100&style=flat-square)](https://www.npmjs.com/package/yubico-js) ![node-current](https://img.shields.io/node/v/yubico-js?style=flat-square)
 
 An implementation of the [Yubico Validation Protocol](https://developers.yubico.com/yubikey-val/Validation_Protocol_V2.0.html).
 
