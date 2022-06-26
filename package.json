@@ -2,6 +2,10 @@
   "name": "yubico-js",
   "version": "0.0.10",
   "description": "A Yubico OTP Client",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=6.0.0"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
