@@ -31,4 +31,14 @@ describe('Verify YubiKey OTP', () => {
       expect(e).toStrictEqual(usedError);
     }
   });
+
+  // test('Verify Correct OTP', async () => {
+  //   const instance = new Yubico({
+  //     clientId: process.env.CLIENT_ID,
+  //     secretKey: process.env.SECRET_KEY,
+  //   });
+
+  //   const res: YubicoResponse = await instance.verifyOtp('touch_your_key');
+  //   expect(res.status).toStrictEqual(YubicoResponseStatus.OK);
+  // });
 });

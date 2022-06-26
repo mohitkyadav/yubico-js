@@ -6,79 +6,33 @@ import { IYubicoResponse } from '../interfaces';
 import { SL } from '../types';
 
 export class YubicoResponse {
-  private _otp: string;
-  private _nonce: string;
-  private _h: string;
-  private _t: number;
-  private _status: YubicoResponseStatus;
-  private _timestamp: string;
-  private _sessioncounter: string;
-  private _sessionuse: string;
-  private _sl: SL;
+  public otp: string;
+  public nonce: string;
+  public h: string;
+  public t: number;
+  public status: YubicoResponseStatus;
+  public timestamp: string;
+  public sessioncounter: string;
+  public sessionuse: string;
+  public sl: SL;
 
   constructor(options: IYubicoResponse) {
-    this._otp = options.otp;
-    this._nonce = options.nonce;
-    this._h = options.h;
-    this._t = options.t;
-    this._status = options.status;
-    this._timestamp = options.timestamp;
-    this._sessioncounter = options.sessioncounter;
-    this._sessionuse = options.sessionuse;
-    this._sl = options.sl;
-  }
-
-  public get otp(): string {
-    return this._otp;
-  }
-
-  /**
-   * @returns {Date} UTC time of request
-   */
-  public get t(): Date {
-    return new Date(this._t * 1000);
-  }
-
-  /**
-   * @returns {Date} Time when the YubiKey was pressed.
-   */
-  public get timestamp(): Date {
-    return new Date(this._timestamp);
-  }
-
-  /**
-   * @returns {number} YubiKey usage counter.
-   */
-  public get sessioncounter(): number {
-    return parseInt(this._sessioncounter, 10);
-  }
-
-  /**
-   * @returns {number} YubiKey internal session usage counter when key was pressed
-   */
-  public get sessionuse(): number {
-    return parseInt(this._sessionuse, 10);
-  }
-
-  /**
-   * @returns {SL} Server sync percentage.
-   */
-  public get sl(): SL {
-    return this._sl;
-  }
-
-  /**
-   * @returns {ResponseStatus} The status of the request.
-   */
-  public get status(): YubicoResponseStatus {
-    return this._status;
+    this.otp = options.otp;
+    this.nonce = options.nonce;
+    this.h = options.h;
+    this.t = options.t;
+    this.status = options.status;
+    this.timestamp = options.timestamp;
+    this.sessioncounter = options.sessioncounter;
+    this.sessionuse = options.sessionuse;
+    this.sl = options.sl;
   }
 
   /**
    * @returns {string} The public get ID is the first 12 bytes of the OTP.
    */
   public getPublicId(): string {
-    return this._otp.substring(0, 12);
+    return this.otp.substring(0, 12);
   }
 
   /**
@@ -108,10 +62,11 @@ export class YubicoResponse {
 
     const options: object = listAttr.reduce((obj, resItem) => {
       // resItem = 'key=value'
-      const [key, value] = resItem.split('=');
+      const separator = '=';
+      const [key, ...value] = resItem.split(separator);
 
       return Object.assign(obj, {
-        [key]: value,
+        [key]: value.join(separator),
       });
     }, {});
 
@@ -125,33 +80,32 @@ export class YubicoResponse {
    * @param otp {string} OTP
    */
   public validate(nonce: string, secret: string, otp: string) {
-    if (this._status !== YubicoResponseStatus.OK) {
-      const errorMessage: string = yubicoResErrorMessages[this._status];
+    if (this.status !== YubicoResponseStatus.OK) {
+      const errorMessage: string = yubicoResErrorMessages[this.status];
 
       if (!errorMessage) {
-        throw new Error('Unknown response status: ' + this._status);
+        throw new Error('Unknown response status: ' + this.status);
       }
 
       throw new Error(errorMessage);
     }
 
-    if (this._nonce !== nonce) {
+    if (this.nonce !== nonce) {
       throw new Error('Nonces do not match.');
     }
 
     const body = keysUsedInHash
-      .filter((key) => (this as any)[key] !== undefined)
       .sort()
       .map((key) => key + '=' + (this as any)[key])
       .join('&');
 
     const hash = crypto.createHmac('sha1', Buffer.from(secret, 'base64')).update(body).digest('base64');
 
-    if (hash !== this._h) {
+    if (hash !== this.h) {
       throw new Error('Hash provided from server and client hash do not match');
     }
 
-    if (this._otp !== otp) {
+    if (this.otp !== otp) {
       throw new Error('OTPs do not match');
     }
   }
