@@ -1,6 +1,6 @@
 # Yubico-JS
 
-![npm](https://img.shields.io/npm/v/yubico-js?logo=npm&logoColor=%23ca0100&style=flat-square)
+![npm](https://img.shields.io/npm/v/yubico-js?logo=npm&logoColor=%23ca0100&style=flat-square) ![node-current](https://img.shields.io/node/v/yubico-js?style=flat-square)
 
 An implementation of the [Yubico Validation Protocol](https://developers.yubico.com/yubikey-val/Validation_Protocol_V2.0.html).
 
@@ -46,6 +46,11 @@ try {
   console.log(e);
 }
 ```
+
+## Contributing
+
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+[![Bugs](https://img.shields.io/static/v1?label=Bugs&message=Report&color=red&style=flat-square)](https://github.com/mohitkyadav/yubico-js/issues)
 
 ## License
 
