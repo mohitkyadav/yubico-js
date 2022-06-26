@@ -1,1 +1,2 @@
-export * from './yubico';
+export * from './Yubico';
+export * from './YubicoResponse';
