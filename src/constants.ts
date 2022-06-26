@@ -34,7 +34,7 @@ export const keysUsedInHash = ['nonce', 'otp', 'sessioncounter', 'sessionuse', '
  * Error messages
  * Source: https://developers.yubico.com/yubikey-val/Validation_Protocol_V2.0.html
  */
-export const errorMessages = {
+export const yubicoResErrorMessages = {
   [YubicoResponseStatus.BAD_OTP]: 'The OTP is invalid format',
   [YubicoResponseStatus.REPLAYED_OTP]: 'The OTP has already been seen by the service.',
   [YubicoResponseStatus.BAD_SIGNATURE]: 'The HMAC signature verification failed.',

@@ -1,2 +1,2 @@
-export * from './IResponse';
+export * from './IYubicoResponse';
 export * from './IYubico';

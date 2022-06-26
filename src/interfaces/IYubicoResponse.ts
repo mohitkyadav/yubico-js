@@ -1,6 +1,6 @@
 import { YubicoResponseStatus } from '../enums';
 
-export interface IResponse {
+export interface IYubicoResponse {
   otp: string;
   nonce: string;
   h: string;
