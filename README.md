@@ -51,7 +51,3 @@ try {
 
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 [![Bugs](https://img.shields.io/static/v1?label=Bugs&message=Report&color=red&style=flat-square)](https://github.com/mohitkyadav/yubico-js/issues)
-
-## License
-
-![GitHub](https://img.shields.io/github/license/mohitkyadav/yubico-js?logo=github&style=flat-square)
